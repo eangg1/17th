@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halo Marva</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" type="image/x-icon" href="android-chrome-192x192.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #141414;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            cursor: pointer;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            height: 300px; /* Adjust the height as needed */
+        }
+
+        .card {
+            display: none;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.75);
+            border-radius: 8px;
+            font-size: 1.5em;
+            font-weight: bold;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .slide-in {
+            animation-name: slideIn;
+        }
+
+        .slide-out {
+            animation-name: slideOut;
+        }
+
+        .button {
+            display: none;
+            text-decoration: none;
+            color: white;
+            background-color: #e50914;
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #f40612;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .nav-button.left {
+            left: 10px;
+        }
+
+        .nav-button.right {
+            right: 10px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="nav-button left" id="prevButton">&#10094;</button>
+        <button class="nav-button right" id="nextButton">&#10095;</button>
+        <div class="card slide-in">
+            <div class="text"></div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">tanggal lahir kamu 31 Maret 2008??</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">berarti kamu hari ini ulang tahun ke 16 dongg?</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">nama kamu juga marva, berarti kamu orang yg tepat buat liat ini</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">aku udh nyariin kamu kemana mana tapi ga ketemu</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">ternyata kamu disini</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">jadi aku bikin project ini buat ulang tahun kamu</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">aku bikin dari akhir bulan januari</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">so i've been making this for 2 months</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">lumayan lama bikinnya, dan lumayan cape juga</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">tadi niatnya ga jadi bikinin kamu ginian, tapi kalo buat kamu apasih yg engga</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">abis ini langsung klik tombolnya aja ya</div>
+        </div>
+        <div class="card slide-in">
+            <div class="text">hope u like it</div>
+        </div>
+        <a href="https://eangg1.github.io/kue-buat-wawa/" class="button" id="finalButton">lanjut</a>
+    </div>
+
+    <script>
+        let currentText = 0;
+        const cards = document.querySelectorAll('.card');
+        const finalButton = document.getElementById('finalButton');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        function showCard(index) {
+            cards.forEach((card, i) => {
+                card.style.display = i === index ? 'block' : 'none';
+            });
+            cards[index].classList.remove('slide-out');
+            cards[index].classList.add('slide-in');
+        }
+
+        function changeCard(step) {
+            cards[currentText].classList.remove('slide-in');
+            cards[currentText].classList.add('slide-out');
+            setTimeout(() => {
+                currentText += step;
+                if (currentText < 0) currentText = 0;
+                if (currentText >= cards.length) currentText = cards.length - 1;
+                showCard(currentText);
+                if (currentText === cards.length - 1) {
+                    finalButton.style.display = 'block';
+                } else {
+                    finalButton.style.display = 'none';
+                }
+            }, 1000); // Match the duration of the animation
+        }
+
+        showCard(currentText); // Show the first card
+
+        nextButton.addEventListener('click', function() {
+            changeCard(1);
+        });
+
+        prevButton.addEventListener('click', function() {
+            changeCard(-1);
+        });
+
+        finalButton.addEventListener('click', function() {
+            window.location.href = 'anotherpage.html'; // Redirect to another page
+        });
+    </script>
+</body>
+</html>
