@@ -132,7 +132,7 @@
         }
 
         .movie {
-            transform: scale(1);
+            min-width: 90vw; /* Responsif untuk layar lebih kecil */
         }
 
         .movie img {
@@ -575,7 +575,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Season 1: ur 16th birthday gift</h2>
-            <img src="https://via.placeholder.com/600x400" alt="Movie Image">
+            <img src="https://via.placeholder.com/300x150" alt="Movie Image">
             <p class="genre">Genre: Documentary, Personal, Celebration, Drama, Comedy</p>
             <p>welcome to Season 1 of a special celebration dedicated entirely to U, Marva! even though ur 16th birthday was a year ago and this was created last year, i wanted to remind u of this heartfelt collection of messages and warm wishes that i prepared for u. it’s a tribute to the wonderful person u are and the incredible journey u've had. enjoy this reminder of how special u are, even if it's a year later!</p>
             <div class="start-episode">
@@ -741,34 +741,21 @@
     showPage(currentPageIndex);
 });
     
-function toggleText(id) {
-    var episode = document.getElementById(id);
-    var moreText = episode.querySelector('.more-text');
-    var readMore = episode.querySelector('.read-more');
 
-    if (moreText.style.display === "none" || moreText.style.display === "") {
-        moreText.style.display = "inline";
-        readMore.innerHTML = "Read less";
-        readMore.classList.add('read-less');
-        readMore.classList.remove('read-more');
-    } else {
-        moreText.style.display = "none";
-        readMore.innerHTML = "Read more";
-        readMore.classList.add('read-more');
-        readMore.classList.remove('read-less');
+    function toggleText(episodeId) {
+        const episode = document.getElementById(episodeId);
+        const moreText = episode.querySelector('.more-text');
+        const readMoreLink = episode.querySelector('.read-more');
+
+        if (moreText.style.display === 'none' || moreText.style.display === '') {
+            moreText.style.display = 'inline';
+            readMoreLink.textContent = 'Read less';
+        } else {
+            moreText.style.display = 'none';
+            readMoreLink.textContent = 'Read more';
+        }
     }
-}
 
-// Automatically show more text when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    var episode = document.getElementById('episode1');
-    var moreText = episode.querySelector('.more-text');
-    var readMore = episode.querySelector('.read-more');
-
-    // Show 'Read more' by default
-    moreText.style.display = "none";
-    readMore.innerHTML = "Read more";
-});
     </script>
 </body>
 </html>
