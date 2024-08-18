@@ -26,33 +26,36 @@
             position: relative;
             opacity: 0;
             animation: fadeIn 1s forwards;
+            padding: 20px;
         }
 
         h1 {
-            margin-bottom: 30px;
-            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-align: center;
         }
 
         .profiles {
             display: flex;
-            gap: 20px;
+            gap: 1rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .profile {
             text-align: center;
-            flex: 1;
-            min-width: 150px;
             cursor: pointer;
             transition: transform 0.3s ease;
             opacity: 0;
             animation: profileFadeIn 1s forwards;
             animation-delay: 0.5s;
+            flex: 1;
+            max-width: 150px;
         }
 
         .profile img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: auto;
             border-radius: 50%;
             border: 3px solid transparent;
             transition: border-color 0.3s ease;
@@ -63,12 +66,12 @@
         }
 
         .profile-name {
-            margin-top: 15px;
+            margin-top: 0.75rem;
             font-size: 1.2rem;
         }
 
         .manage-profiles {
-            margin-top: 40px;
+            margin-top: 2rem;
             font-size: 1rem;
             color: #b3b3b3;
             text-decoration: underline;
@@ -114,6 +117,42 @@
                 opacity: 0;
             }
         }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .profiles {
+                gap: 1.5rem;
+            }
+
+            .profile {
+                max-width: 180px;
+            }
+
+            .profile-name {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .profiles {
+                gap: 2rem;
+            }
+
+            .profile {
+                max-width: 200px;
+            }
+
+            .profile-name {
+                font-size: 1.6rem;
+            }
+        }
     </style>
     <script>
         function selectProfile(profile) {
@@ -124,10 +163,10 @@
                 } else {
                     alert('Profile ' + profile + ' selected!');
                 }
-            }, 1000); // Durasi animasi sama dengan durasi fade-out
+            }, 1000);
         }
 
-        window.onload = function() {
+        window.onload = function () {
             const profiles = document.querySelectorAll('.profile');
             profiles.forEach((profile, index) => {
                 profile.style.animationDelay = `${index * 0.2}s`;
