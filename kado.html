@@ -10,23 +10,41 @@
 
 * {
     font-family: 'Poppins', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.bg{
-   position: absolute; 
+html, body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+}
+
+.bg {
+   position: absolute;
    width: 100%;
-   height: 101vh;
+   height: 100%; /* Pastikan tinggi background mengisi seluruh elemen parent */
+   background-size: cover;
+   background-position: center;
+   top: 0;
+   left: 0;
+   z-index: -1;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url('background landing page.jpg') no-repeat center center/cover;
+        color: #fff;
+    }
 
 .text{
-  color: #333;
+  color: #ffffff;
   font-size: 18px;
   text-align: center;
   position:relative; top:120px; left:0px; margin-left:-145px; margin-right:-145px;
@@ -58,7 +76,7 @@ input#click {
   position: relative;
   width: 150px;
   height: 100px;
-  background-color: #B1ACCA;
+  background-color: #e50914;
 }
 
 .gift:before {
@@ -66,7 +84,7 @@ input#click {
   position: absolute;
   width: 25px;
   height: 100px;
-  background-color: #FFF5DB;
+  background-color: #ffffff;
   left:61px;
 }
 
@@ -81,7 +99,7 @@ input#click {
 
 .click {
   position: absolute;
-  background-color: #B1ACCA;
+  background-color: #e50914;
   width: 170px;
   height: 40px;
   top:-40px;
@@ -96,7 +114,7 @@ input#click {
   position: absolute;
   width: 25px;
   height: 40px;
-  background-color: #FFF5DB;
+  background-color: #ffffff;
   left:71px;
 }
 
@@ -105,8 +123,8 @@ input#click {
   position: absolute;
   width: 5px;
   height: 0;
-  border-bottom: 30px solid #FFF5DB;
-  border-top: 30px solid #FFF5DB;
+  border-bottom: 30px solid #ffffff;
+  border-top: 30px solid #ffffff;
   border-left: 0px solid transparent;
   border-right: 30px solid transparent;
   transform: rotate(-90deg);
@@ -115,27 +133,28 @@ input#click {
 }
 
 #click:checked + .click {
-  transform: translateY(-115px); 
+  transform: translateY(-75px); 
   transition: 1s;
 }
 
 .wishes {
-  color: #FFF5DB;
-  background: #B1ACCA;
+  color: #ffffff;
+  padding: 5px 5px;
+  background: #e50914;
   position: absolute;
-  border-radius: 5%;
+  border-radius: 5px;
   text-align: center;
   top: 20px;
   font-size: 25px;
   z-index: -1 ;
-  left: 5px;
+  left: 20px;
   cursor: pointer;
   transition: 1s;
   text-decoration: none;
 }
 
 #click:checked ~ .wishes {
-  transform: translateY(-110px);
+  transform: translateY(-75px);
   cursor: pointer;
   z-index: 0;
   text-decoration: none;
@@ -278,25 +297,24 @@ input#click {
     </style>
 </head>
 <body>
-  <img src="bg kado.png" class="bg">
-    <div class="birthday-gift">
-      <div class="gift">
-      <input id='click' type='checkbox'>
-      <label class='click' for='click'></label>
-      <label class='click2' for='click2'></label>
-      <a href="word.html" class="wishes">pencet biar tau isinya </a>
-          <div class="sparkles">
-          <div class="spark1"></div>
-          <div class="spark2"></div>
-          <div class="spark3"></div>
-          <div class="spark4"></div>
-          <div class="spark5"></div>
-          <div class="spark6"></div>
-      </div>
-      <div class="text">
-        <h1>ini kadonya</h1>
-        <h2>jangan lupa dibuka : )</h2>
-      </div>
+  <div class="birthday-gift">
+    <div class="gift">
+    <input id='click' type='checkbox'>
+    <label class='click' for='click'></label>
+    <label class='click2' for='click2'></label>
+    <a href="word.html" class="wishes">Go Back </a>
+        <div class="sparkles">
+        <div class="spark1"></div>
+        <div class="spark2"></div>
+        <div class="spark3"></div>
+        <div class="spark4"></div>
+        <div class="spark5"></div>
+         <div class="spark6"></div>
+    </div>
+    <div class="text">
+      <h1>ini kadonya</h1>
+      <h2>jangan lupa dibuka : )</h2>
+    </div>
   </div>
 </body>
 </html>
