@@ -352,7 +352,31 @@
         .modal-content {
             animation: fadeIn 0.3s ease-in-out;
         }
+        
+        .hero-page {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
 
+        .hero-page.active {
+            left: 0;
+            opacity: 1;
+        }
+
+        .hero-page.slide-out-left {
+            left: -100%;
+            opacity: 0;
+        }
+
+        .hero-page.slide-out-right {
+            left: 100%;
+            opacity: 0;
+        }
+        
         .nav-button {
             position: absolute;
             top: 50%;
@@ -363,6 +387,7 @@
             padding: 10px;
             cursor: pointer;
             font-size: 1rem;
+            z-index: 10;
         }
 
         .nav-button.left {
@@ -406,6 +431,28 @@
             max-width: 600px;
             z-index: 1;
             padding-top: 75px;
+        }
+
+        .page-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: white;
         }
 
         .button {
@@ -848,6 +895,19 @@
         footer ul li {
             font-size: 0.7rem; /* Adjust font size for smaller screens */
         }
+
+        .indicator {
+            width: 7px;
+            height: 7px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: white;
+        }
     }
 
     
@@ -897,6 +957,11 @@
         </div>
         <button class="nav-button left" id="prevButton">&#10094;</button>
         <button class="nav-button right" id="nextButton">&#10095;</button>
+
+        <div class="page-indicators">
+            <span class="indicator" data-page="0"></span>
+            <span class="indicator" data-page="1"></span>
+        </div>
     </div>
     
 
@@ -967,7 +1032,7 @@
                             <span class="more-text"> this gift is more than just an item, it's a reflection of the care and dedication i put into celebrating ur special day. i hope this reminder brings a smile to ur face and adds a touch of joy to ur day.</span>
                             <a href="#" class="read-more" onclick="toggleText('episode2')">Read more</a>
                         </p>
-                        <a href="https://eangg1.github.io/kado-bwat-wawa/" class="button" target="_blank">Explore Episode 2</a>
+                        <a href="https://eangg1.github.io/kue/" class="button" target="_blank">Explore Episode 2</a>
                     </div>
                 </div>
                 
@@ -1131,6 +1196,56 @@
         }
     }
 
+    const pages = document.querySelectorAll('.hero-page');
+const indicators = document.querySelectorAll('.indicator');
+let currentPage = 0;
+let isTransitioning = false;
+
+// Menambahkan kelas 'active' ke halaman pertama agar terlihat saat pertama kali web dimuat
+pages[currentPage].classList.add('active');
+indicators[currentPage].classList.add('active');
+
+document.getElementById('nextButton').addEventListener('click', () => {
+  if (!isTransitioning) {
+    slidePage('next');
+  }
+});
+
+document.getElementById('prevButton').addEventListener('click', () => {
+  if (!isTransitioning) {
+    slidePage('prev');
+  }
+});
+
+function slidePage(direction) {
+  isTransitioning = true; // Menghindari pemicu berulang selama animasi
+
+  const current = pages[currentPage];
+  const currentIndicator = indicators[currentPage];
+  let nextPage;
+
+  if (direction === 'next') {
+    nextPage = (currentPage + 1) % pages.length;
+    current.classList.add('slide-out-left');
+    pages[nextPage].style.left = '100%';
+  } else {
+    nextPage = (currentPage - 1 + pages.length) % pages.length;
+    current.classList.add('slide-out-right');
+    pages[nextPage].style.left = '-100%';
+  }
+
+  const nextIndicator = indicators[nextPage];
+  pages[nextPage].classList.add('active');
+  nextIndicator.classList.add('active');
+
+  setTimeout(() => {
+    current.classList.remove('active', 'slide-out-left', 'slide-out-right');
+    currentIndicator.classList.remove('active');
+    pages[nextPage].style.left = '0';
+    currentPage = nextPage;
+    isTransitioning = false;
+  }, 500); // Sesuaikan dengan durasi animasi transition di CSS
+}
     </script>
 </body>
 </html>
