@@ -453,47 +453,227 @@
 
     /* Untuk tablet dan layar menengah */
     @media (max-width: 1024px) {
+        .hero {
+            height: 45vh;
+            padding: 0 50px 20px;
+        }
+
+        .hero-content {
+            max-width: 100%;
+            padding-top: 45px;
+        }
+
         .hero h1 {
-            font-size: 4vw; /* Ukuran font yang responsif */
+            font-size: 3.5vw;
+            margin-bottom: 8px;
         }
 
         .hero p {
-            font-size: 2.5vw; /* Ukuran font yang responsif */
+            font-size: 2.2vw;
+            margin-bottom: 12px;
         }
 
         .hero-buttons button {
-            padding: 10px 20px; /* Padding lebih besar untuk layar menengah */
+            padding: 10px 20px;
             font-size: 1rem;
         }
 
-        .movie {
-            min-width: 20vw; /* Lebih besar untuk layar menengah */
-        }
-    }
-
-    /* Untuk perangkat seluler (potret dan lanskap) */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 6vw; /* Menyesuaikan ukuran font pada layar yang lebih kecil */
-        }
-
-        .hero p {
-            font-size: 4vw; /* Ukuran font lebih kecil untuk layar sempit */
-        }
-
-        .hero-buttons button {
-            padding: 8px 16px; /* Padding sesuai layar kecil */
-            font-size: 0.9rem;
+        footer ul {
+            flex-direction: row;
+            gap: 15px;
         }
 
         .movie {
-            min-width: 25vw; /* Lebih besar di layar yang lebih kecil */
+            min-width: 28vw;
         }
 
         .hero-page video {
-            object-fit: contain; /* Memastikan video tidak terpotong */
+            object-fit: cover;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+        }
+
+        header img.logo {
+            width: 10vw;
+            max-width: 250px;
+        }
+
+        nav ul {
+            gap: 8px;
+        }
+
+        nav ul li {
+            font-size: 12px;
+        }
+
+        .section-title {
+            margin: 15px;
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        .nav-button {
+            padding: 14px;
+            font-size: 1.1rem;
+        }
+
+        .modal-content {
+            padding: 20px;
+            width: 60vw;
+        }
+
+        .modal-content p {
+            font-size: 0.9rem;
+        }
+
+        .modal-content h2 {
+            font-size: 1.2rem;
+        }
+
+        .episode-thumbnail img {
+            width: 180px;
+            height: 120px;
+            border-radius: 10px;
+        }
+
+        .button {
+            padding: 12px 24px;
+            font-size: 14px;
+        }
+
+        .close {
+            font-size: 1.7rem;
+        }
+
+        footer {
+            padding: 25px;
+            font-size: 16px;
+        }
+
+        footer ul {
+            gap: 10px;
+            padding-bottom: 15px;
+        }
+
+        footer ul li {
+            font-size: 0.9rem;
         }
     }
+    /* Untuk perangkat seluler (potret dan lanskap) */
+    @media (max-width: 768px) {
+        .hero {
+            height: 40vh; /* Tinggi sedikit lebih tinggi dibandingkan layar kecil */
+            padding: 0 40px 15px;
+        }
+
+        .hero-content {
+            max-width: 100%;
+            padding-top: 40px;
+        }
+
+        .hero h1 {
+            font-size: 4vw;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 2.5vw;
+            margin-bottom: 10px;
+        }
+
+        .hero-buttons button {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        footer ul {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .movie {
+            min-width: 30vw;
+        }
+
+        .hero-page video {
+            object-fit: cover;
+        }
+
+        .profile-pic {
+            width: 35px;
+            height: 35px;
+        }
+
+        header img.logo {
+            width: 12vw;
+            max-width: 200px;
+        }
+
+        nav ul {
+            gap: 6px;
+        }
+
+        nav ul li {
+            font-size: 11px;
+        }
+
+        .section-title {
+            margin: 10px;
+            font-size: 1.1rem;
+            padding: 8px;
+        }
+
+        .nav-button {
+            padding: 12px;
+            font-size: 1rem;
+        }
+
+        .modal-content {
+            padding: 15px;
+            width: 70vw;
+        }
+
+        .modal-content p {
+            font-size: 0.8rem;
+        }
+
+        .modal-content h2 {
+            font-size: 1.1rem;
+        }
+
+        .episode-thumbnail img {
+            width: 150px;
+            height: 100px;
+            border-radius: 8px;
+        }
+
+        .button {
+            padding: 10px 18px;
+            font-size: 12px;
+        }
+
+        .close {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            padding: 20px;
+            font-size: 15px;
+        }
+
+        footer ul {
+            gap: 8px;
+            padding-bottom: 12px;
+        }
+
+        footer ul li {
+            font-size: 0.8rem;
+        }
+    }
+
 
     /* Untuk perangkat sangat kecil seperti ponsel (potret) */
     @media (max-width: 480px) {
@@ -653,7 +833,24 @@
             cursor: pointer; /* Ensures the cursor changes to a pointer */
             z-index: 1001; /* Ensure it's above other elements */
         }
+
+        footer {
+            padding: 15px; /* Adjust padding for smaller screens */
+            font-size: 14px;
+        }
+
+        footer ul {
+            gap: 6px; /* Reduce gap between list items */
+            padding-bottom: 10px;
+            padding-top: 5px;
+        }
+
+        footer ul li {
+            font-size: 0.7rem; /* Adjust font size for smaller screens */
+        }
     }
+
+    
     </style>
 </head>
 
@@ -689,7 +886,7 @@
             <!-- Konten halaman kedua hero -->
             <video id="heroVideo2" src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop></video>
             <div class="hero-content">
-                <h1>page to celebrate ur 17th!🎉</h1>
+                <h1>Season 2: celebrate ur 17th!</h1>
                 <p>family and friends tribute for ur 17th birthday.</p>
                 <div class="hero-buttons">
                     <button id="more-info">
@@ -793,24 +990,34 @@
     <div id="myModalPage2" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>page to celebrate ur 17th!🎉</h2>
+            <h2>Season 2: celebrate ur 17th!</h2>
             <img src="https://via.placeholder.com/600x400" alt="Movie Image">
             <p class="genre">Genre: Documentary, Personal, Celebration, Drama, Comedy</p> <!-- New Genre Section -->
             <p>Welcome to a special episode dedicated entirely to you, Marva! Today, we gather heartfelt messages and warm wishes from your parents and closest friends to make your 17th birthday unforgettable. From touching words of love to joyful expressions of celebration, this episode is all about honoring the wonderful person you are and the incredible journey you’ve had so far. Sit back, relax, and enjoy the heartfelt tributes as we celebrate YOU on this special day!</p>
             <div class="start-episode">
                 <h2>Start Watching</h2>
-                <div class="episode-thumbnail" id="episode3" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                <div class="episode-thumbnail" id="episode4" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
                     <img src="https://via.placeholder.com/150x100" alt="Episode 3 Thumbnail">
                     <div class="episode-info">
-                        <p class="episode-title">Episode 1: Special Greetings and Well-Wishes from Marva's Loved Ones</p>
-                        <p class="episode-description">happy sweet seventeen marvaa! in this first episode, we’ve gathered heartfelt messages from your parents and closest friends. watch the warm wishes and best prayers they have sent just for u. may these words make this special day even more meaningful and filled with joy!</p>
+                        <p class="episode-title">S2 E1: Special Greetings and Well-Wishes from Marva's Loved Ones</p>
+                        <p class="episode-description">
+                            happy sweet seventeen marvaa! in this first episode, we’ve gathered heartfelt messages from your parents and closest friends. 
+                            <span class="more-text"> watch the warm wishes and best prayers they have sent just for u. may these words make this special day even more meaningful and filled with joy!</span>
+                            <a href="#" class="read-more" onclick="toggleText('episode4')">Read more</a>
+                        </p>
+                    <a href="https://eangg1.github.io/cake/" class="button" target="_blank ">Watch Episode 1</a>
                     </div>
                 </div>
-                <div class="episode-thumbnail" id="episode4" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
+                <div class="episode-thumbnail" id="episode5" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
                     <img src="https://via.placeholder.com/150x100" alt="Episode 4 Thumbnail">
                     <div class="episode-info">
-                        <p class="episode-title">Episode 2: Marva’s 17th Birthday: A Journey of Joy and Memories</p>
-                        <p class="episode-description">in this second episode, we present a random video filled with exciting moments and surprises. enjoy a variety of clips, special memories, and unexpected events that make your birthday even more festive. may this video bring extra smiles and joy to ur special day!</p>
+                        <p class="episode-title">S2 E2: Marva’s 17th Birthday: A Journey of Joy and Memories</p>
+                        <p class="episode-description">
+                            in this second episode, we present a random video filled with exciting moments and surprises. 
+                            <span class="more-text"> a variety of clips, special memories, and unexpected events that make your birthday even more festive. may this video bring extra smiles and joy to ur special day!</span>
+                            <a href="#" class="read-more" onclick="toggleText('episode5')">Read More</a>
+                        </p>
+                        <a href="https://eangg1.github.io/cake/" class="button" target="_blank" >Watch Episode 2</a>
                     </div>
                 </div>
             </div>
