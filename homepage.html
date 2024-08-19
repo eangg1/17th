@@ -62,16 +62,6 @@
             }
         }
 
-        @media (max-width: 480px) {
-            nav ul {
-                flex-direction: row; /* Tetap horizontal pada layar lebih kecil */
-                gap: 10px;
-            }
-
-            nav ul li {
-                font-size: 12px; /* Ukuran font lebih kecil untuk perangkat sangat kecil */
-            }
-        }
         .profile-pic {
             width: 40px;
             height: 40px;
@@ -103,17 +93,17 @@
         .hero-content {
             max-width: 100%;
             z-index: 1;
-            padding-top: 75px;
+            padding-top: 5px;
         }
 
         .hero h1 {
             font-size: 5vw;
-            margin-bottom:20px;
+            margin-bottom: 5px;
         }
 
         .hero p {
             font-size: 2.5vw;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
 
         .hero-buttons {
@@ -130,7 +120,6 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .hero-buttons button i {
@@ -149,13 +138,13 @@
         .movies-row {
             display: flex;
             overflow-x: auto;
-            padding: 20px;
+            padding: 10px;
             gap: 10px;
             scroll-behavior: smooth;
         }
 
         .movie {
-            min-width: 80vw; /* Responsif untuk layar lebih kecil */
+            min-width: 20vw; /* Responsif untuk layar lebih kecil */
         }
 
         .movie img {
@@ -238,7 +227,7 @@
         }
 
         .modal-content button {
-            padding: 10px 20px;
+            padding: 10px 10px;
             background-color: #e50914;
             border: none;
             color: white;
@@ -373,6 +362,7 @@
             border: none;
             padding: 10px;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .nav-button.left {
@@ -392,11 +382,12 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 80vh;
+            height: 100vh;
             display: flex;
             align-items: flex-end;
             justify-content: left;
             padding: 0 40px 60px;
+            overflow: hidden;
             background-color: rgba(0, 0, 0, 0.5);
         }
 
@@ -408,6 +399,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            pointer-events: none;
         }
 
         .hero-content {
@@ -419,7 +411,7 @@
         .button {
             display: inline-block;
             padding: 12px 24px;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: bold;
             color: white;
             background-color: #e50914; /* Netflix red */
@@ -458,54 +450,210 @@
         }
 
         /* Media Queries */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 4vw;
+
+    /* Untuk tablet dan layar menengah */
+    @media (max-width: 1024px) {
+        .hero h1 {
+            font-size: 4vw; /* Ukuran font yang responsif */
+        }
+
+        .hero p {
+            font-size: 2.5vw; /* Ukuran font yang responsif */
+        }
+
+        .hero-buttons button {
+            padding: 10px 20px; /* Padding lebih besar untuk layar menengah */
+            font-size: 1rem;
+        }
+
+        .movie {
+            min-width: 20vw; /* Lebih besar untuk layar menengah */
+        }
     }
 
-    .hero p {
-        font-size: 2vw;
+    /* Untuk perangkat seluler (potret dan lanskap) */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 6vw; /* Menyesuaikan ukuran font pada layar yang lebih kecil */
+        }
+
+        .hero p {
+            font-size: 4vw; /* Ukuran font lebih kecil untuk layar sempit */
+        }
+
+        .hero-buttons button {
+            padding: 8px 16px; /* Padding sesuai layar kecil */
+            font-size: 0.9rem;
+        }
+
+        .movie {
+            min-width: 25vw; /* Lebih besar di layar yang lebih kecil */
+        }
+
+        .hero-page video {
+            object-fit: contain; /* Memastikan video tidak terpotong */
+        }
     }
 
-    .hero-buttons button {
-        padding: 8px 16px;
+    /* Untuk perangkat sangat kecil seperti ponsel (potret) */
+    @media (max-width: 480px) {
+        .hero {
+            height: 30vh; /* Mengurangi tinggi hero untuk layar kecil */
+            padding: 0 25px 10px;
+        }
+
+        .hero-content {
+            max-width: 100%;
+            z-index: 1;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 5vw; /* Font lebih besar agar tetap terbaca di layar kecil */
+            margin-bottom: 2px;
+        }
+
+        .hero p {
+            font-size: 3vw; /* Menyesuaikan ukuran teks deskripsi */
+            margin-bottom: 5px;
+        }
+
+        .hero-buttons button {
+            padding: 6px 12px; /* Padding kecil untuk tombol */
+            font-size: 0.4rem;
+        }
+
+        footer ul {
+            flex-direction: column;
+            gap: 10px; /* Mengatur jarak antar elemen footer di layar kecil */
+        }
+
+        .movie {
+            min-width: 35vw; /* Lebih besar untuk tampilan ponsel kecil */
+        }
+
+        .hero-page video {
+            object-fit: contain; /* Memastikan video tidak terpotong di layar kecil */
+        }
+
+        .profile-pic {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        header img.logo {
+            width: 12vw; /* Unit responsif */
+            max-width: 150px; /* Batas maksimum */
+        }
+
+        nav ul {
+            flex-direction: row; /* Tetap horizontal pada layar lebih kecil */
+            gap: 4px;
+        }
+
+        nav ul li {
+            font-size: 7px; /* Ukuran font lebih kecil untuk perangkat sangat kecil */
+        }
+
+        .section-title {
+            margin: 7px;
+            font-size: 1rem;
+            padding: 5px;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .movies-row {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            gap: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .nav-button.left {
+            left: 5px;
+            padding: 4px; /* Padding lebih kecil untuk ponsel kecil */
+            font-size: 0.7rem; /* Ukuran font lebih kecil */
+        }
+
+        .nav-button.right {
+            right: 5px;
+            padding: 4px; /* Padding lebih kecil untuk ponsel kecil */
+            font-size: 0.7rem; /* Ukuran font lebih kecil */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            padding: 10px; /* Kurangi padding lebih lanjut untuk layar sangat kecil */
+            width: 80vw; /* Lebar modal hampir penuh di layar kecil */
+            max-width: none; /* Hapus max-width untuk layar kecil */
+        }
+
+        .modal-content p {
+            font-size: 0.5rem; /* Kurangi ukuran font untuk keterbacaan lebih baik */
+            margin-bottom: 10px;
+        }
+
+        .modal-content h2 {
+            font-size: 0.8rem; /* Kurangi ukuran font untuk header */
+        }
+
+        .modal-content button {
+            padding: 6px 12px; /* Kurangi padding tombol lebih jauh */
+            font-size: 0.1rem; /* Kurangi ukuran font tombol */
+        }
+
+        .modal-content .genre {
+            font-size: 0.7rem; /* Sesuaikan ukuran font genre */
+        }
+
+        .episode-thumbnail img {
+            width: 100px;  /* Mengurangi lebar untuk layar kecil */
+            height: 70px;  /* Mengurangi tinggi untuk layar kecil */
+            border-radius: 6px;  /* Mengurangi radius border untuk proporsionalitas */
+        }
+
+        .button {
+            padding: 8px 16px; /* Adjust padding for smaller screens */
+            font-size: 8px; /* Adjust font size for better fit */
+            margin-bottom: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 7px; /* Adjust this value as needed */
+            right: 7px; /* Adjust this value as needed */
+            font-size: 1rem;
+            color: white;
+            cursor: pointer; /* Ensures the cursor changes to a pointer */
+            z-index: 1001; /* Ensure it's above other elements */
+        }
     }
-
-    .movie {
-        min-width: 75vw; /* Responsif untuk layar lebih kecil */
-    }
-
-
-}
-
-@media (max-width: 480px) {
-    .hero {
-        height: 40vh;
-        padding: 0 10px 20px;
-    }
-
-    .hero h1 {
-        font-size: 6vw;
-    }
-
-    .hero p {
-        font-size: 3vw;
-    }
-
-    .hero-buttons button {
-        padding: 5px 10px;
-        font-size: 0.8rem;
-    }
-
-    footer ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .movie {
-        min-width: 50vw; /* Responsif untuk layar lebih kecil */
-    }
-}
     </style>
 </head>
 
