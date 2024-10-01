@@ -21,6 +21,13 @@
             overflow: hidden;
         }
 
+/* Untuk layar kecil seperti smartphone */
+        @media only screen and (max-width: 600px) {
+            body {
+            background: url('assets/bg landing page hp.jpeg') no-repeat center center/cover;
+            }
+        }
+
         .overlay {
             background: rgba(0, 0, 0, 0.7);
             height: 100vh;
@@ -114,22 +121,20 @@
             event.preventDefault();
             const birthdayInput = document.getElementById('birthday').value;
             const validBirthday = '2008-03-31'; // Format YYYY-MM-DD
-
+    
             if (birthdayInput === validBirthday) {
                 const overlay = document.querySelector('.overlay');
                 overlay.classList.add('fade-out');
                 
-                // Tunggu animasi selesai (1 detik) sebelum redirect
                 setTimeout(() => {
-                    window.location.href = 'account.html'; // Redirect to account.html
+                    window.location.href = 'account.html'; 
                 }, 1000);
             } else {
-                alert('Invalid date of birth. Please try again.');
+                window.location.href = 'https://www.netflix.com/id/';
             }
         }
     </script>
 </head>
-
 
 <body>
     <div class="overlay">
