@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,26 +47,63 @@
         }
 
         nav ul li {
-            font-size: 16px; /* Ukuran font default */
+            font-size: 16px;
         }
 
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: row; /* Tetap horizontal pada layar kecil */
+                flex-direction: row;
                 gap: 12px;
             }
 
             nav ul li {
-                font-size: 14px; /* Ukuran font lebih kecil untuk perangkat kecil */
+                font-size: 14px;
             }
+        }
+        
+        .profile-container {
+            position: relative;
+            display: inline-block;
         }
 
         .profile-pic {
-            width: 40px;
-            height: 40px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             cursor: pointer;
             object-fit: cover;
+        }
+
+        .dropdown {
+            position: absolute;
+            right: 0;
+            top: 60px;
+            background-color: #141414; /* Netflix black */
+            border: 1px solid #e50914;  /* Netflix red */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .dropdown a:hover {
+            background-color: #e50914; /* Netflix red hover effect */
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
         }
 
         .hero {
@@ -260,7 +296,6 @@
             margin: 10px 0;
         }
 
-        /* Modal Close Button */
         .close {
             position: absolute;
             top: 10px; /* Adjust this value as needed */
@@ -271,8 +306,6 @@
             z-index: 1001; /* Ensure it's above other elements */
         }
 
-
-        /* New Hero Section Styles */
         .start-episode {
             margin-top: 20px;
         }
@@ -290,14 +323,13 @@
             font-size: 1rem;
             cursor: pointer;
             border-radius: 5px;
-            margin-right: 20px; /* Added margin for spacing */
+            margin-right: 20px;
         }
 
         .start-episode button:hover {
             opacity: 0.8;
         }
 
-        /* Thumbnail Styles */
         .episode-thumbnail {
             display: flex;
             align-items: center;
@@ -330,7 +362,6 @@
             transition: max-height 0.3s ease;
         }
 
-        /* Animasi Fade-in */
         @keyframes fadeIn {
         from {
             opacity: 0;
@@ -461,7 +492,7 @@
             font-size: 12px;
             font-weight: bold;
             color: white;
-            background-color: #e50914; /* Netflix red */
+            background-color: #e50914; 
             border: none;
             border-radius: 5px;
             text-align: center;
@@ -471,44 +502,41 @@
         }
 
         .button:hover {
-            background-color: #f40612; /* Darker red for hover effect */
-            transform: scale(1.05); /* Slightly enlarge the button on hover */
+            background-color: #f40612; 
+            transform: scale(1.05); 
         }
 
         .button:active {
-            background-color: #e50914; /* Original red on click */
-            transform: scale(0.98); /* Slightly shrink the button on click */
+            background-color: #e50914; 
+            transform: scale(0.98); 
         }
 
         .button:focus {
-            outline: none; /* Remove default focus outline */
+            outline: none; 
         }
 
         .episode-description .more-text {
-            display: none; /* Teks lebih lanjut tersembunyi secara default */
+            display: none; 
         }
 
         .episode-description .read-more {
-            color: inherit; /* Mengatur warna teks link mengikuti warna teks induk */
+            color: inherit; 
         }
 
         .episode-description .read-less {
-            color: inherit; /* Mengatur warna teks link mengikuti warna teks induk */
+            color: inherit;
         }
 
         .no-style {
-            color: inherit; /* Mengambil warna teks dari elemen induk */
-            text-decoration: none; /* Menghapus garis bawah */
-            cursor: pointer; /* Mengubah kursor menjadi pointer saat dihover */
+            color: inherit; 
+            text-decoration: none; 
+            cursor: pointer; 
         }
 
         .no-style:hover {
-            text-decoration: underline; /* Menambahkan garis bawah saat dihover, opsional */
+            text-decoration: underline; 
         }
 
-        /* Media Queries */
-
-    /* Untuk tablet dan layar menengah */
     @media (max-width: 1024px) {
         .hero {
             height: 45vh;
@@ -774,25 +802,38 @@
         }
 
         .profile-pic {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            cursor: pointer;
-            object-fit: cover;
+            width: 30px;
+            height: 30px;
+        }
+        
+        .dropdown {
+            right: 5px; 
+            top: 35px;   
+            width: 90px; 
+            font-size: smaller;
+        }
+
+        .dropdown a {
+            padding: 5px; 
+        }
+
+        .dropdown a:hover {
+            background-color: #e50914; 
+            color: white;
         }
 
         header img.logo {
-            width: 15vw; /* Unit responsif */
-            max-width: 150px; /* Batas maksimum */
+            width: 15vw;
+            max-width: 100px; 
         }
 
         nav ul {
-            flex-direction: row; /* Tetap horizontal pada layar lebih kecil */
+            flex-direction: row; 
             gap: 4px;
         }
 
         nav ul li {
-            font-size: 9px; /* Ukuran font lebih kecil untuk perangkat sangat kecil */
+            font-size: 9px; 
         }
 
         .section-title {
@@ -935,7 +976,14 @@
                 <li>My List</li>
             </ul>
         </nav>
-        <img src="assets/wawa.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="profile-container">
+            <img src="assets/wawa.jpg" alt="Profile Picture" class="profile-pic" onclick="toggleDropdown()">
+            <div id="dropdown-menu" class="dropdown hidden">
+                <a href="profile.html">Profile</a>
+                <a href="settings.html">Settings</a>
+                <a href="account.html">Log Out</a>
+            </div>
+        </div>
     </header>
 
     <div class="hero-container">
@@ -1217,55 +1265,70 @@
     }
 
     const pages = document.querySelectorAll('.hero-page');
-const indicators = document.querySelectorAll('.indicator');
-let currentPage = 0;
-let isTransitioning = false;
+    const indicators = document.querySelectorAll('.indicator');
+    let currentPage = 0;
+    let isTransitioning = false;
 
 // Menambahkan kelas 'active' ke halaman pertama agar terlihat saat pertama kali web dimuat
-pages[currentPage].classList.add('active');
-indicators[currentPage].classList.add('active');
+    pages[currentPage].classList.add('active');
+    indicators[currentPage].classList.add('active');
 
-document.getElementById('nextButton').addEventListener('click', () => {
-  if (!isTransitioning) {
-    slidePage('next');
-  }
-});
+    document.getElementById('nextButton').addEventListener('click', () => {
+    if (!isTransitioning) {
+        slidePage('next');
+        }
+    });
 
-document.getElementById('prevButton').addEventListener('click', () => {
-  if (!isTransitioning) {
-    slidePage('prev');
-  }
-});
+    document.getElementById('prevButton').addEventListener('click', () => {
+        if (!isTransitioning) {
+        slidePage('prev');
+        }
+    });
 
-function slidePage(direction) {
-  isTransitioning = true; // Menghindari pemicu berulang selama animasi
+    function slidePage(direction) {
+        isTransitioning = true; // Menghindari pemicu berulang selama animasi
 
-  const current = pages[currentPage];
-  const currentIndicator = indicators[currentPage];
-  let nextPage;
+    const current = pages[currentPage];
+    const currentIndicator = indicators[currentPage];
+    let nextPage;
 
-  if (direction === 'next') {
-    nextPage = (currentPage + 1) % pages.length;
-    current.classList.add('slide-out-left');
-    pages[nextPage].style.left = '100%';
-  } else {
-    nextPage = (currentPage - 1 + pages.length) % pages.length;
-    current.classList.add('slide-out-right');
-    pages[nextPage].style.left = '-100%';
-  }
+    if (direction === 'next') {
+        nextPage = (currentPage + 1) % pages.length;
+        current.classList.add('slide-out-left');
+        pages[nextPage].style.left = '100%';
+    } else {
+        nextPage = (currentPage - 1 + pages.length) % pages.length;
+        current.classList.add('slide-out-right');
+        pages[nextPage].style.left = '-100%';
+    }
 
-  const nextIndicator = indicators[nextPage];
-  pages[nextPage].classList.add('active');
-  nextIndicator.classList.add('active');
+    const nextIndicator = indicators[nextPage];
+    pages[nextPage].classList.add('active');
+    nextIndicator.classList.add('active');
 
-  setTimeout(() => {
-    current.classList.remove('active', 'slide-out-left', 'slide-out-right');
-    currentIndicator.classList.remove('active');
-    pages[nextPage].style.left = '0';
-    currentPage = nextPage;
-    isTransitioning = false;
-  }, 5);
-}
+    setTimeout(() => {
+        current.classList.remove('active', 'slide-out-left', 'slide-out-right');
+        currentIndicator.classList.remove('active');
+        pages[nextPage].style.left = '0';
+        currentPage = nextPage;
+        isTransitioning = false;
+        }, 5);
+    }
+
+function toggleDropdown() {
+        const dropdown = document.getElementById('dropdown-menu');
+        dropdown.classList.toggle('show');
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-pic')) {
+            const dropdown = document.getElementById('dropdown-menu');
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        }
+    }
     </script>
 </body>
 </html>
