@@ -60,6 +60,62 @@
                 font-size: 14px;
             }
         }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+            padding: 10px 10px;
+            cursor: pointer;
+        }
+
+        nav ul li:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        #season-dropdown {
+            position: relative;
+            cursor: pointer; /* Indicates that the element is clickable */
+        }
+
+        #season-dropdown span {
+            padding: 10px; /* Adds some padding for better appearance */
+        }
+
+        #season-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            list-style-type: none;
+            padding: 10px 0;
+            margin: 0;
+            min-width: 160px;
+        }
+
+        #season-menu li {
+            padding: 10px;
+        }
+
+        #season-menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #season-menu li:hover {
+            background-color: #444;
+        }
+
+        #season-dropdown:hover #season-menu {
+            display: block;
+        }
         
         .profile-container {
             position: relative;
@@ -67,8 +123,8 @@
         }
 
         .profile-pic {
-            width: 25px;
-            height: 25px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
             object-fit: cover;
@@ -961,7 +1017,24 @@
         }
     }
 
-    
+    .swal2-popup {
+        font-size: 20px; /* Smaller font size */
+        width: 350px;    /* Custom width for smaller size */
+    }
+
+    .swal2-title {
+        font-size: 18px; /* Smaller title font */
+    }
+
+    .swal2-content {
+        font-size: 14px; /* Smaller content font */
+    }
+
+    .swal2-actions button {
+        font-size: 17px; /* Smaller button font */
+        padding: 7px 12px; /* Smaller padding for buttons */
+    }
+
     </style>
 </head>
 
@@ -971,8 +1044,14 @@
         <nav>
             <ul>
                 <li>TV Shows</li>
-                <li>Season</li>
-                <li>News </li>
+                <div id="season-dropdown">
+                    <span>Select Season</span>
+                    <ul id="season-menu" class="custom-dropdown-menu">
+                        <li><a href="#" id="season1">Season 1</a></li>
+                        <li><a href="#" id="season2">Season 2</a></li>
+                    </ul>
+                </div>
+                <li>News</li>
                 <li>My List</li>
             </ul>
         </nav>
@@ -981,7 +1060,7 @@
             <div id="dropdown-menu" class="dropdown hidden">
                 <a href="profile.html">Profile</a>
                 <a href="settings.html">Settings</a>
-                <a href="account.html">Log Out</a>
+                <a href="#" onclick="confirmLogout(event)">Log Out</a>
             </div>
         </div>
     </header>
@@ -1157,6 +1236,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var episodeThumbnails = document.querySelectorAll('.episode-thumbnail');
@@ -1187,22 +1267,60 @@
             });
         });
     
+        document.addEventListener('DOMContentLoaded', function() {
+        // Get elements
+            var season1Btn = document.getElementById('season1');
+            var season2Btn = document.getElementById('season2');
+            var modal1 = document.getElementById('myModal');
+            var modal2 = document.getElementById('myModalPage2');
+            var closeButtons = document.querySelectorAll('.close');
+
+        // Show modal for Season 1
+            season1Btn.addEventListener('click', function(event) {
+                event.preventDefault();
+                modal1.style.display = 'block';
+            });
+
+        // Show modal for Season 2
+            season2Btn.addEventListener('click', function(event) {
+                event.preventDefault();
+                modal2.style.display = 'block';
+            });
+
+        // Close modal when close button is clicked
+            closeButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    btn.closest('.modal').style.display = 'none';
+                });
+            });
+
+        // Close modal when clicking outside of modal
+            window.onclick = function(event) {
+                if (event.target === modal1) {
+                    modal1.style.display = 'none';
+                }
+                if (event.target === modal2) {
+                    modal2.style.display = 'none';
+                }
+            };
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
-    const heroPages = document.querySelectorAll(".hero-page");
-    const modals = {
-        page1: document.getElementById("myModal"),
-        page2: document.getElementById("myModalPage2")
-    };
-    const prevButton = document.getElementById("prevButton");
-    const nextButton = document.getElementById("nextButton");
-    let currentPageIndex = 0;
+            const heroPages = document.querySelectorAll(".hero-page");
+            const modals = {
+                page1: document.getElementById("myModal"),
+                page2: document.getElementById("myModalPage2")
+        };
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+            let currentPageIndex = 0;
 
     // Fungsi untuk menampilkan halaman hero berdasarkan indeks
-    function showPage(index) {
-        heroPages.forEach((page, i) => {
-            page.style.display = i === index ? "block" : "none";
-        });
-    }
+            function showPage(index) {
+                heroPages.forEach((page, i) => {
+                    page.style.display = i === index ? "block" : "none";
+                });
+            }
 
     // Event listener untuk tombol "Next" dan "Previous"
     nextButton.addEventListener("click", function() {
@@ -1315,19 +1433,37 @@
         }, 5);
     }
 
-function toggleDropdown() {
-        const dropdown = document.getElementById('dropdown-menu');
-        dropdown.classList.toggle('show');
-    }
+    document.getElementById('season-dropdown').addEventListener('click', function() {
+        const menu = document.getElementById('season-menu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block'; // Toggles the dropdown
+    });
 
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.profile-pic')) {
-            const dropdown = document.getElementById('dropdown-menu');
-            if (dropdown.classList.contains('show')) {
-                dropdown.classList.remove('show');
-            }
+// Optionally, you can also close the dropdown when clicking outside of it
+    document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('season-dropdown');
+        const menu = document.getElementById('season-menu');
+        if (!dropdown.contains(event.target)) {
+        menu.style.display = 'none'; // Closes the dropdown if clicked outside
         }
+    });
+
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will be logged out!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e50914', // Netflix red
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, log me out!',
+            customClass: {
+                popup: 'swal2-popup'
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "index.html"; // Redirect to the logout page
+            }
+        });
     }
     </script>
 </body>
