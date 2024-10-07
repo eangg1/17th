@@ -650,6 +650,14 @@
             font-size: 12px;
         }
 
+        #season-dropdown {
+            position: relative;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: -.5px;
+            font-weight: normal;
+        }
+
         .section-title {
             margin: 15px;
             font-size: 1.2rem;
@@ -759,6 +767,14 @@
 
         nav ul li {
             font-size: 11px;
+        }
+
+        #season-dropdown {
+            position: relative;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: -1px;
+            font-weight: normal;
         }
 
         .section-title {
@@ -907,6 +923,30 @@
             border: none;
             padding: 10px;
             cursor: pointer;
+        }
+
+        #season-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            list-style-type: none;
+            padding: 10px 0;
+            margin: 0;
+            min-width: 160px;
+        }
+
+        #season-menu li {
+            padding: 10px;
+        }
+
+        #season-dropdown {
+            position: relative;
+            cursor: pointer;
+            font-size: 10px;
+            margin-top: -1.5px;
+            font-weight: normal;
         }
 
         .movies-row {
@@ -1416,9 +1456,9 @@
         }, 5);
     }
 
-function toggleDropdown() {
-        const dropdown = document.getElementById('dropdown-menu');
-        dropdown.classList.toggle('show');
+    function toggleDropdown() {
+            const dropdown = document.getElementById('dropdown-menu');
+            dropdown.classList.toggle('show');
     }
 
     // Close the dropdown if the user clicks outside of it
@@ -1439,7 +1479,7 @@ function toggleDropdown() {
             text: "Do you really want to log out?",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
+            confirmButtonColor: '#e50914',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, log out!'
         }).then((result) => {
