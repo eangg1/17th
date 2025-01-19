@@ -1202,7 +1202,7 @@
                             <span class="more-text"> this gift is more than just an item, it's a reflection of the care and dedication i put into celebrating ur special day. i hope this reminder brings a smile to ur face and adds a touch of joy to ur day.</span>
                             <a href="#" class="read-more" onclick="toggleText('episode2')">Read more</a>
                         </p>
-                        <a href="https://eangg1.github.io/kue/" class="button" target="_blank">Explore Episode 2</a>
+                        <a href="https://eangg1.github.io/kado/" class="button" target="_blank">Explore Episode 2</a>
                     </div>
                 </div>
                 
@@ -1226,13 +1226,13 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Season 2: celebrate ur 17th!</h2>
-            <img src="https://via.placeholder.com/600x400" alt="Movie Image">
+            <img src="assets/S2.jpeg" alt="Movie Image">
             <p class="genre">Genre: Documentary, Personal, Celebration, Drama, Comedy</p> <!-- New Genre Section -->
             <p>Welcome to a special episode dedicated entirely to you, Marva! Today, we gather heartfelt messages and warm wishes from your parents and closest friends to make your 17th birthday unforgettable. From touching words of love to joyful expressions of celebration, this episode is all about honoring the wonderful person you are and the incredible journey you’ve had so far. Sit back, relax, and enjoy the heartfelt tributes as we celebrate YOU on this special day!</p>
             <div class="start-episode">
                 <h2>Start Watching</h2>
                 <div class="episode-thumbnail" id="episode4" data-video-src="https://www.w3schools.com/html/mov_bbb.mp4">
-                    <img src="https://via.placeholder.com/150x100" alt="Episode 3 Thumbnail">
+                    <img src="assets/S2E1.jpeg"Episode 3 Thumbnail">
                     <div class="episode-info">
                         <p class="episode-title">S2 E1: Special Greetings and Well-Wishes from Marva's Loved Ones</p>
                         <p class="episode-description">
@@ -1427,7 +1427,7 @@
     });
 
     function slidePage(direction) {
-        isTransitioning = true; // Menghindari pemicu berulang selama animasi
+        isTransitioning = true; 
 
     const current = pages[currentPage];
     const currentIndicator = indicators[currentPage];
@@ -1461,7 +1461,6 @@
             dropdown.classList.toggle('show');
     }
 
-    // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
         if (!event.target.matches('.profile-pic')) {
             const dropdown = document.getElementById('dropdown-menu');

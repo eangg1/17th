@@ -26,6 +26,7 @@
     /* Netflix Logo without circle */
     header .logo {
       height: 30px;
+      cursor: pointer;
     }
 
     /* Profile Image in the Header */
@@ -216,7 +217,9 @@
 
   <!-- Header with Netflix Logo on the Left and Profile Picture on the Right -->
   <header>
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+    <a href="javascript:history.back()">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+  </a>
     <img class="profile-pic" src="assets/wawa.jpg" alt="Profile Picture">
   </header>
 
@@ -259,6 +262,11 @@
       </div>
 
       <div class="profile-section">
+        <span>Time Until Next Birthday</span>
+        <p id="next-birthday"></p> <!-- Time until next birthday will be displayed here -->
+      </div>
+
+      <div class="profile-section">
         <p><a href="#" id="logout-btn">Log Out</a></p>
       </div>
     </div>
@@ -278,22 +286,40 @@
 
 <script>
     function calculateAge() {
-      const birthDate = new Date('2008-03-31T00:00:00'); // Date of birth: 31 March 2008
-      const now = new Date(); // Current date and time
-      const diff = now - birthDate; // Difference in milliseconds
+    const birthDate = new Date('2008-03-31T00:00:00'); // Date of birth: 31 March 2008
+    const now = new Date(); // Current date and time
+    const diff = now - birthDate; // Difference in milliseconds
 
-      // Calculate the years, months, days, hours, minutes, and seconds
-      const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-      const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-      const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    // Calculate the years, months, days, hours, minutes, and seconds
+    const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+    const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+    const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      // Display the result
-      const ageDisplay = `${years} y, ${months} m, ${days} d, ${hours} h, ${minutes} min, ${seconds} sec`;
-      document.getElementById('age').innerText = ageDisplay;
+    // Display the age result
+    const ageDisplay = `${years} y, ${months} m, ${days} d, ${hours} h, ${minutes} min, ${seconds} sec`;
+    document.getElementById('age').innerText = ageDisplay;
+
+    // Calculate the time until the next birthday
+    let nextBirthday = new Date(birthDate);
+    nextBirthday.setFullYear(now.getFullYear());
+    if (now > nextBirthday) {
+        nextBirthday.setFullYear(now.getFullYear() + 1); // If this year's birthday has passed
     }
+
+    const timeUntilNextBirthday = nextBirthday - now;
+    const daysUntilNext = Math.floor(timeUntilNextBirthday / (1000 * 60 * 60 * 24));
+    const hoursUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutesUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60 * 60)) / (1000 * 60));
+    const secondsUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60)) / 1000);
+
+    // Display the time until the next birthday
+    const nextBirthdayDisplay = `${daysUntilNext} d, ${hoursUntilNext} h, ${minutesUntilNext} min, ${secondsUntilNext} sec`;
+    document.getElementById('next-birthday').innerText = nextBirthdayDisplay;
+}
+
 
     // Call calculateAge function every second to update the age in real-time
     setInterval(calculateAge, 1000);
