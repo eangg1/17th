@@ -306,19 +306,37 @@
     let nextBirthday = new Date(birthDate);
     nextBirthday.setFullYear(now.getFullYear());
     if (now > nextBirthday) {
-        nextBirthday.setFullYear(now.getFullYear() + 1); // If this year's birthday has passed
+        nextBirthday.setFullYear(now.getFullYear() + 1); // Jika ulang tahun tahun ini sudah lewat
     }
 
+    // Calculate months and days until the next birthday
+    let monthsUntilNext = nextBirthday.getMonth() - now.getMonth();
+    if (monthsUntilNext < 0) {
+        monthsUntilNext += 12; // Adjust if crossing into a new year
+    }
+
+    // Adjust the nextBirthday to calculate remaining days accurately
+    let tempNextBirthday = new Date(nextBirthday);
+    tempNextBirthday.setMonth(now.getMonth() + monthsUntilNext);
+
+    // Calculate days remaining within the current month
+    let daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+    let remainingDaysInMonth = daysInCurrentMonth - now.getDate();
+    let daysUntilNext = tempNextBirthday.getDate() - now.getDate();
+    if (daysUntilNext < 0) {
+        daysUntilNext = remainingDaysInMonth + nextBirthday.getDate();
+    }
+
+    // Calculate hours, minutes, and seconds
     const timeUntilNextBirthday = nextBirthday - now;
-    const daysUntilNext = Math.floor(timeUntilNextBirthday / (1000 * 60 * 60 * 24));
     const hoursUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutesUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60 * 60)) / (1000 * 60));
     const secondsUntilNext = Math.floor((timeUntilNextBirthday % (1000 * 60)) / 1000);
 
     // Display the time until the next birthday
-    const nextBirthdayDisplay = `${daysUntilNext} d, ${hoursUntilNext} h, ${minutesUntilNext} min, ${secondsUntilNext} sec`;
+    const nextBirthdayDisplay = `${monthsUntilNext} mo, ${daysUntilNext} d, ${hoursUntilNext} h, ${minutesUntilNext} min, ${secondsUntilNext} sec`;
     document.getElementById('next-birthday').innerText = nextBirthdayDisplay;
-}
+    }
 
 
     // Call calculateAge function every second to update the age in real-time

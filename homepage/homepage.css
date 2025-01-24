@@ -1,0 +1,1199 @@
+ /* Existing CSS */
+ * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #141414;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        position: fixed;
+        top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; /* Logo dan navigasi sejajar */
+        align-items: center;
+        padding: 15px 50px;
+        background: rgba(0, 0, 0, 0.062);
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+    }
+
+    header img.logo {
+        width: 10vw; /* Unit responsif */
+        max-width: 120px; /* Batas maksimum */
+        padding-right: 0px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    nav ul li {
+        font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        nav ul li {
+            font-size: 14px;
+        }
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding-left: 90px;
+        margin: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    nav ul li:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    #season-dropdown {
+        position: relative;
+        cursor: pointer; /* Indicates that the element is clickable */
+    }
+
+    #season-dropdown span {
+        padding: 1px; /* Adds some padding for better appearance */
+    }
+
+    #season-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        list-style-type: none;
+        padding: 10px 0;
+        margin: 0;
+        min-width: 160px;
+    }
+
+    #season-menu li {
+        padding: 10px;
+    }
+
+    #season-menu li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #season-menu li:hover {
+        background-color: #444;
+    }
+
+    #season-dropdown:hover #season-menu {
+        display: block;
+    }
+
+    /* Kontainer utama (misalnya header atau navbar) */
+    .header-container {
+        display: flex;
+        justify-content: flex-end; /* Elemen akan sejajar ke kanan */
+        align-items: center;
+        padding-left: 210px; /* Tambahkan padding sesuai kebutuhan */
+    }
+
+    /* Profil container tetap sama */
+    .profile-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        object-fit: cover;
+    }
+
+    .dropdown {
+        position: absolute;
+        right: 0;
+        top: 55px;
+        background-color: #141414; /* Netflix black */
+        border: 1px solid #e50914;  /* Netflix red */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 10;
+    }
+
+    .dropdown a {
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+        white-space: nowrap;
+    }
+
+    .dropdown a:hover {
+        background-color: #e50914; /* Netflix red hover effect */
+        color: white;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-right: 20px; /* Jarak ke ikon lonceng */
+    }
+
+    .search-bar {
+        padding: 8px 10px;
+        border: 1px solid #333;
+        border-radius: 25px;
+        background-color: #141414;
+        color: white;
+        font-size: 14px;
+        outline: none;
+        width: 300px;
+        transition: border-color 0.3s ease;
+    }
+
+    .search-bar::placeholder {
+        color: #666; /* Placeholder text color */
+    }
+
+    .search-bar:focus {
+        border-color: #e50914; /* Netflix red */
+    }
+
+    .search-button {
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        background-color: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-button svg {
+        fill: #e50914; /* Netflix red */
+        transition: fill 0.3s ease;
+    }
+
+    .search-button:hover svg {
+        fill: white;
+    }
+
+    /* Notification container */
+    .notification-container {
+        position: relative;
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .notification-container:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Notification badge */
+    .notification-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #e50914;
+        color: white;
+        border-radius: 50%;
+        padding: 4px 6px;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1;
+        min-width: 18px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Dropdown menu */
+    .dropdown {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: #141414; /* Latar belakang dropdown */
+        border: 1px solid #e50914;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        width: 220px; /* Lebar dropdown */
+        padding: 15px;
+        border-radius: 6px;
+        display: none; /* Tersembunyi secara default */
+        z-index: 10;
+    }
+
+    .notification-item {
+        margin: 0 0 10px 0; /* Jarak ke bawah untuk tombol */
+        color: white;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* Tombol untuk mengunjungi website */
+    .visit-button {
+        width: 100%; /* Tombol penuh */
+        padding: 10px;
+        background-color: #e50914; /* Warna merah khas Netflix */
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .visit-button:hover {
+        background-color: #f40612; /* Efek hover */
+    }
+
+    /* Tampilkan dropdown saat aktif */
+    .dropdown.show {
+        display: block;
+    }
+
+    .hero {
+        position: relative;
+        text-align: left;
+        height: 100vh;
+        background: url('background landing page.jpg') no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        padding: 50px;
+    }
+
+    .hero video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        margin-left: 30px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .hero-buttons button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .hero-buttons button i {
+        font-size: 1rem;
+    }
+
+    .hero-buttons button:hover {
+        opacity: 0.8;
+    }
+
+    .section-title {
+        margin-top: 40px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+    }
+
+    .movies-row {
+        display: flex;
+        overflow-x: auto;
+        margin-left: 0px;
+        padding: 40px;
+        gap: 20px;
+        scroll-behavior: smooth;
+    }
+
+    .movie {
+        width: 60vh; /* Responsif untuk layar lebih kecil */
+    }
+
+    .movie img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius:20px ;
+    }
+
+    .movie:hover {
+        transform: scale(1.05);
+    }
+
+    footer {
+        padding: 20px;
+        background-color: #141414;
+        color: #b3b3b3;
+        text-align: center;
+    }
+
+    footer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    footer ul li {
+        font-size: 0.8rem;
+    }
+
+    footer ul li a {
+        color: #b3b3b3;
+        text-decoration: none;
+    }
+
+    footer ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* Modal CSS */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #222;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 90vw;
+        max-width: 600px;
+        color: white;
+        border-radius: 10px;
+        position: relative; /* Ensure position relative for child absolute positioning */
+    }
+
+    .modal-content p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .modal-content img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .modal-content button {
+        padding: 10px 10px;
+        background-color: #e50914;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 5px;
+        margin-right: 10px;
+        text-transform: capitalize;
+    }
+
+    .modal-content button i {
+        font-size: 1.2rem;
+    }
+
+    .modal-content button:hover {
+        opacity: 0.8;
+    }
+
+    .modal-content button:last-child {
+        margin-right: 0;
+    }
+
+    .modal-content .genre {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #e50914;
+        margin: 10px 0;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px; /* Adjust this value as needed */
+        right: 10px; /* Adjust this value as needed */
+        font-size: 2rem;
+        color: white;
+        cursor: pointer; /* Ensures the cursor changes to a pointer */
+        z-index: 1001; /* Ensure it's above other elements */
+    }
+
+    .start-episode {
+        margin-top: 20px;
+    }
+
+    .start-episode h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .start-episode button {
+        padding: 10px 20px;
+        background-color: #e50914;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-right: 20px;
+    }
+
+    .start-episode button:hover {
+        opacity: 0.8;
+    }
+
+    .episode-thumbnail {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .episode-thumbnail img {
+        width: 150px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .episode-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .episode-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: white;
+        margin: 0;
+    }
+
+    .episode-description {
+        overflow: hidden;
+        position: relative;
+        transition: max-height 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Contoh Penggunaan */
+    .header,
+    .hero,
+    .movies-row,
+    .footer,
+    .modal-content {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .hero-page {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    .hero-page.active {
+        left: 0;
+        opacity: 1;
+    }
+
+    .hero-page.slide-out-left {
+        left: -100%;
+        opacity: 0;
+    }
+
+    .hero-page.slide-out-right {
+        left: 100%;
+        opacity: 0;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        z-index: 10;
+    }
+
+    .nav-button.left {
+        left: 10px;
+    }
+
+    .nav-button.right {
+        right: 10px;
+    }
+
+    .hero-container {
+        position: relative;
+    }
+
+    .hero-page {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: left;
+        padding: 0 40px 60px;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-page video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .hero-content {
+        max-width:1000px;
+        z-index: 1;
+        padding-top: 200px;
+    }
+
+    .page-indicators {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .indicator.active {
+        background-color: white;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        background-color: #e50914; 
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #f40612; 
+        transform: scale(1.05); 
+    }
+
+    .button:active {
+        background-color: #e50914; 
+        transform: scale(0.98); 
+    }
+
+    .button:focus {
+        outline: none; 
+    }
+
+    .episode-description .more-text {
+        display: none; 
+    }
+
+    .episode-description .read-more {
+        color: inherit; 
+    }
+
+    .episode-description .read-less {
+        color: inherit;
+    }
+
+    .no-style {
+        color: inherit; 
+        text-decoration: none; 
+        cursor: pointer; 
+    }
+
+    .no-style:hover {
+        text-decoration: underline; 
+    }
+
+    @media (max-width: 1024px) {
+    .hero {
+        height: 45vh;
+        padding: 0 50px 20px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-top: 45px;
+    }
+
+    .hero h1 {
+        font-size: 3.5vw;
+        margin-bottom: 8px;
+    }
+
+    .hero p {
+        font-size: 2.2vw;
+        margin-bottom: 12px;
+    }
+
+    .hero-buttons button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    footer ul {
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .movie {
+        min-width: 28vw;
+    }
+
+    .hero-page video {
+        object-fit: cover;
+    }
+
+    .profile-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    header img.logo {
+        width: 10vw;
+        max-width: 250px;
+    }
+
+    nav ul {
+        gap: 8px;
+    }
+
+    nav ul li {
+        font-size: 12px;
+    }
+
+    #season-dropdown {
+        position: relative;
+        cursor: pointer;
+        font-size: 13px;
+        margin-top: -.5px;
+        font-weight: normal;
+    }
+
+    .section-title {
+        margin: 15px;
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    .nav-button {
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+        width: 60vw;
+    }
+
+    .modal-content p {
+        font-size: 0.9rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .episode-thumbnail img {
+        width: 180px;
+        height: 120px;
+        border-radius: 10px;
+    }
+
+    .button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    .close {
+        font-size: 1.7rem;
+    }
+
+    footer {
+        padding: 25px;
+        font-size: 16px;
+    }
+
+    footer ul {
+        gap: 10px;
+        padding-bottom: 15px;
+    }
+
+    footer ul li {
+        font-size: 0.9rem;
+    }
+    }
+    /* Untuk perangkat seluler (potret dan lanskap) */
+    @media (max-width: 768px) {
+    .hero {
+        height: 40vh; /* Tinggi sedikit lebih tinggi dibandingkan layar kecil */
+        padding: 0 40px 15px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 4vw;
+        margin-bottom: 6px;
+    }
+
+    .hero p {
+        font-size: 2.5vw;
+        margin-bottom: 10px;
+    }
+
+    .hero-buttons button {
+        padding: 8px 16px;
+        font-size: 0.rem;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .movie {
+        min-width: 30vw;
+    }
+
+    .hero-page video {
+        object-fit: cover;
+    }
+
+    .profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
+    header img.logo {
+        width: 12vw;
+        max-width: 200px;
+    }
+
+    nav ul {
+        gap: 6px;
+    }
+
+    nav ul li {
+        font-size: 11px;
+    }
+
+    #season-dropdown {
+        position: relative;
+        cursor: pointer;
+        font-size: 12px;
+        margin-top: -1px;
+        font-weight: normal;
+    }
+
+    .section-title {
+        margin: 10px;
+        font-size: 1.1rem;
+        padding: 8px;
+    }
+
+    .nav-button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .modal-content {
+        padding: 15px;
+        width: 70vw;
+    }
+
+    .modal-content p {
+        font-size: 0.8rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.1rem;
+    }
+
+    .episode-thumbnail img {
+        width: 150px;
+        height: 100px;
+        border-radius: 8px;
+    }
+
+    .button {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+
+    .close {
+        font-size: 1.5rem;
+    }
+
+    footer {
+        padding: 20px;
+        font-size: 15px;
+    }
+
+    footer ul {
+        gap: 8px;
+        padding-bottom: 12px;
+    }
+
+    footer ul li {
+        font-size: 0.8rem;
+    }
+    }
+
+
+    /* Untuk perangkat sangat kecil seperti ponsel (potret) */
+    @media (max-width: 480px) {
+    .hero {
+        height: 30vh; /* Mengurangi tinggi hero untuk layar kecil */
+        padding: 0 25px 10px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        z-index: 1;
+        padding-top: 60px;
+    }
+
+    .hero h1 {
+        font-size: 5vw; /* Font lebih besar agar tetap terbaca di layar kecil */
+        margin-bottom: 3px;
+    }
+
+    .hero p {
+        font-size: 3vw; /* Menyesuaikan ukuran teks deskripsi */
+        margin-bottom: 8px;
+    }
+
+    .hero-buttons button {
+        padding: 3px 6px; /* Padding kecil untuk tombol */
+        font-size: 0.5rem;
+    }
+
+    footer ul {
+        flex-direction: column;
+        gap: 10px; /* Mengatur jarak antar elemen footer di layar kecil */
+    }
+
+    .movie {
+        min-width: 35vw; /* Lebih besar untuk tampilan ponsel kecil */
+    }
+
+    .hero-page video {
+        object-fit: contain; /* Memastikan video tidak terpotong di layar kecil */
+    }
+
+    .profile-pic {
+        width: 30px;
+        height: 30px;
+    }
+
+    .dropdown {
+        right: 5px; 
+        top: 35px;   
+        width: 90px; 
+        font-size: smaller;
+    }
+
+    .dropdown a {
+        padding: 5px; 
+    }
+
+    .dropdown a:hover {
+        background-color: #e50914; 
+        color: white;
+    }
+
+    header img.logo {
+        width: 15vw;
+        max-width: 100px; 
+    }
+
+    nav ul {
+        flex-direction: row; 
+        gap: 4px;
+    }
+
+    nav ul li {
+        font-size: 9px; 
+    }
+
+    .section-title {
+        margin: 7px;
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #season-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        list-style-type: none;
+        padding: 10px 0;
+        margin: 0;
+        min-width: 160px;
+    }
+
+    #season-menu li {
+        padding: 10px;
+    }
+
+    #season-dropdown {
+        position: relative;
+        cursor: pointer;
+        font-size: 10px;
+        margin-top: -1.5px;
+        font-weight: normal;
+    }
+
+    .movies-row {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+        gap: 10px;
+        scroll-behavior: smooth;
+    }
+
+    .nav-button.left {
+        left: 5px;
+        padding: 4px; /* Padding lebih kecil untuk ponsel kecil */
+        font-size: 0.9rem; /* Ukuran font lebih kecil */
+    }
+
+    .nav-button.right {
+        right: 5px;
+        padding: 4px; /* Padding lebih kecil untuk ponsel kecil */
+        font-size: 0.9rem; /* Ukuran font lebih kecil */
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        padding: 10px; /* Kurangi padding lebih lanjut untuk layar sangat kecil */
+        width: 80vw; /* Lebar modal hampir penuh di layar kecil */
+        max-width: none; /* Hapus max-width untuk layar kecil */
+    }
+
+    .modal-content p {
+        font-size: 0.7rem; /* Kurangi ukuran font untuk keterbacaan lebih baik */
+        margin-bottom: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 1rem; /* Kurangi ukuran font untuk header */
+    }
+
+    .modal-content button {
+        padding: 6px 12px; /* Kurangi padding tombol lebih jauh */
+        font-size: 0.1rem; /* Kurangi ukuran font tombol */
+    }
+
+    .modal-content .genre {
+        font-size: 0.7rem; /* Sesuaikan ukuran font genre */
+    }
+
+    .episode-thumbnail img {
+        width: 120px;  /* Mengurangi lebar untuk layar kecil */
+        height: 80px;  /* Mengurangi tinggi untuk layar kecil */
+        border-radius: 6px;  /* Mengurangi radius border untuk proporsionalitas */
+    }
+
+    .button {
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        font-size: 10px; /* Adjust font size for better fit */
+        margin-bottom: 10px;
+    }
+
+    .close {
+        position: absolute;
+        top: 7px; /* Adjust this value as needed */
+        right: 7px; /* Adjust this value as needed */
+        font-size: 1.3rem;
+        color: white;
+        cursor: pointer; /* Ensures the cursor changes to a pointer */
+        z-index: 1001; /* Ensure it's above other elements */
+    }
+
+    footer {
+        padding: 15px; /* Adjust padding for smaller screens */
+        font-size: 14px;
+    }
+
+    footer ul {
+        gap: 6px; /* Reduce gap between list items */
+        padding-bottom: 10px;
+        padding-top: 5px;
+    }
+
+    footer ul li {
+        font-size: 0.7rem; /* Adjust font size for smaller screens */
+    }
+
+    .indicator {
+        width: 7px;
+        height: 7px;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .indicator.active {
+        background-color: white;
+    }
+}
