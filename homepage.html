@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix - Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="homepage/homepage.css">
 </head>
 
@@ -14,13 +16,13 @@
         <nav>
             <ul>
                 <li>TV Shows</li>
-                <div id="season-dropdown">
+                <li id="season-dropdown">
                     <span>Season</span>
                     <ul id="season-menu" class="custom-dropdown-menu">
                         <li><a href="#" id="season1">Season 1</a></li>
                         <li><a href="#" id="season2">Season 2</a></li>
                     </ul>
-                </div>
+                </li>
                 <li>News</li>
                 <li>My List</li>
             </ul>
@@ -59,6 +61,7 @@
             <!-- Profile picture -->
             <div class="profile-container" onclick="toggleProfileDropdown(event)">
                 <img src="assets/wawa.jpg" alt="Profile Picture" class="profile-pic">
+                <div class="dropdown-icon"></div>
                 <div id="profile-dropdown" class="dropdown hidden">
                     <a href="profile.html">Profile</a>
                     <a href="#" onclick="confirmLogout(event)">Log Out</a>
@@ -69,10 +72,10 @@
 
     <div class="hero-container">
         <div class="hero hero-page" id="page1">
-            <video id="heroVideo1" src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop></video>
+            <img id="heroImage1" src="assets/thumbnail hero 1.jpg" alt="Background for Season 1">
             <div class="hero-content">
-                <h1>Season 1: ur 16th birthday gift</h1>
-                <p>a gift from me when u're 16th</p>
+                <h1>Season 1: Flashback to 16</h1>
+                <p>"Flashback to 16" is a project that captures the essence of a memorable 16th birthday. This season features a digital creation of a birthday cake, gifts, and birthday messages, all brought to life through code.</p>
                 <div class="hero-buttons">
                     <button id="more-info">
                         <i class="fa fa-info-circle"></i> More Info
@@ -81,11 +84,11 @@
             </div>
         </div>
         <div class="hero hero-page" id="page2" style="display: none;">
-            <!-- Konten halaman kedua hero -->
-            <video id="heroVideo2" src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop></video>
+            <img id="heroImage2" src="assets/thumbnail hero 2.jpg" alt="Background for Season 2">
             <div class="hero-content">
-                <h1>Season 2: celebrate ur 17th!</h1>
-                <p>family and friends tribute for ur 17th birthday.</p>
+                <h1>Season 2: 17 and Beyond:</h1>
+                <h1>Familly & Friends Tribute</h1>
+                <p>"17 and Beyond: Familly & Friend Tribute" celebrates the beginning of a new chapter as you step into your 17th year. This season focuses on heartfelt video messages from parents and loved ones, sharing their hopes, dreams, and words of wisdom as you approach this milestone. It's a season filled with love, encouragement, and the excitement of what lies ahead on the road to adulthood.</p>
                 <div class="hero-buttons">
                     <button id="more-info">
                         <i class="fa fa-info-circle"></i> More Info
@@ -95,49 +98,87 @@
         </div>
         <button class="nav-button left" id="prevButton">&#10094;</button>
         <button class="nav-button right" id="nextButton">&#10095;</button>
-
+    
         <div class="page-indicators">
             <span class="indicator" data-page="0"></span>
             <span class="indicator" data-page="1"></span>
         </div>
     </div>
     
+    
 
     <div class="movies">
         <h2 class="section-title">More To Explore : Marva Anindya Daniswara</h2>
         <div class="movies-row">
-            <div class="movie">
-                <a href="assets/video 1.mp4" target="_blank">
-                    <img src="assets/thumbnail 1.jpeg" alt="Movie 1">
-                </a>
-            </div>
-            <div class="movie">
-                <a href="assets/video 2.mp4" target="_blank">
-                    <img src="assets/thumbnail 2.jpeg" alt="Movie 2">
-                </a>
-            </div>
-            <div class="movie">
-                <a href="assets/video 3.mp4" target="_blank">
-                    <img src="assets/thumbnail 3.jpeg" alt="Movie 3">
-                </a>
-            </div>
-            <div class="movie">
-                <a href="assets/video 4.mp4" target="_blank">
-                    <img src="assets/thumbnail 4.jpeg" alt="Movie 4">
-                </a>
-            </div>
-            <div class="movie">
-                <a href="assets/video 5.mp4" target="_blank">
-                    <img src="assets/thumbnail 1.jpeg" alt="Movie 5">
-                </a>
-            </div>
-            <div class="movie">
-                <a href="assets/video6.mp4" target="_blank">
-                    <img src="assets/thumbnail 1.jpeg" alt="Movie 6">
-                </a>
-            </div>
-            <!-- Add more movies as needed -->
+            <div class="movies-row">
+                <div class="photo-gallery">
+                    <!-- Baris 1 -->
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0" onclick="openFullscreen('assets/9.jpg')">
+                        <img src="assets/9.jpg" alt="Photo 1">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" onclick="openFullscreen('assets/2.jpg')">
+                        <img src="assets/2.jpg" alt="Photo 2">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150" onclick="openFullscreen('assets/12.jpg')">
+                        <img src="assets/12.jpg" alt="Photo 4">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200" onclick="openFullscreen('assets/11.jpg')">
+                        <img src="assets/11.jpg" alt="Photo 5">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="250" onclick="openFullscreen('assets/13.jpg')">
+                        <img src="assets/13.jpg" alt="Photo 6">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300" onclick="openFullscreen('assets/1.jpg')">
+                        <img src="assets/1.jpg" alt="Photo 7">
+                    </div>
+
+
+                    <!-- Baris 2 -->
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0" onclick="openFullscreen('assets/9.jpg')">
+                        <img src="assets/9.jpg" alt="Photo 1">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" onclick="openFullscreen('assets/2.jpg')">
+                        <img src="assets/2.jpg" alt="Photo 2">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150" onclick="openFullscreen('assets/12.jpg')">
+                        <img src="assets/12.jpg" alt="Photo 4">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200" onclick="openFullscreen('assets/11.jpg')">
+                        <img src="assets/11.jpg" alt="Photo 5">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="250" onclick="openFullscreen('assets/13.jpg')">
+                        <img src="assets/13.jpg" alt="Photo 6">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300" onclick="openFullscreen('assets/1.jpg')">
+                        <img src="assets/1.jpg" alt="Photo 7">
+                    </div>
+            
+                    <!-- Baris 3 -->
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0" onclick="openFullscreen('assets/9.jpg')">
+                        <img src="assets/9.jpg" alt="Photo 1">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" onclick="openFullscreen('assets/2.jpg')">
+                        <img src="assets/2.jpg" alt="Photo 2">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150" onclick="openFullscreen('assets/12.jpg')">
+                        <img src="assets/12.jpg" alt="Photo 4">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200" onclick="openFullscreen('assets/11.jpg')">
+                        <img src="assets/11.jpg" alt="Photo 5">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="250" onclick="openFullscreen('assets/13.jpg')">
+                        <img src="assets/13.jpg" alt="Photo 6">
+                    </div>
+                    <div class="photo" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300" onclick="openFullscreen('assets/1.jpg')">
+                        <img src="assets/1.jpg" alt="Photo 7">
+                    </div>
+                </div>
+            </div>      
         </div>
+    </div>
+
+    <div id="fullscreen-modal" class="fullscreen-modal hidden">
+        <img id="fullscreen-img" class="fullscreen-img" src="" alt="Fullscreen Photo">
     </div>
 
     <footer>
@@ -153,7 +194,7 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Season 1: ur 16th birthday gift</h2>
+            <h2>Season 1: Flashback to 16</h2>
             <img src="assets/S1.jpeg" alt="Movie Image">
             <p class="genre">Genre: Documentary, Personal, Celebration, Drama, Comedy</p>
             <p>welcome to Season 1 of a special celebration dedicated entirely to U, Marva! even though ur 16th birthday was a year ago and this was created last year, i wanted to remind u of this heartfelt collection of messages and warm wishes that i prepared for u. it’s a tribute to the wonderful person u are and the incredible journey u've had. enjoy this reminder of how special u are, even if it's a year later!</p>
@@ -204,7 +245,8 @@
     <div id="myModalPage2" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Season 2: celebrate ur 17th!</h2>
+            <h2>Season 2: 17 and Beyond:
+                Familly & Friends Tribute</h2>
             <img src="assets/S2.jpeg" alt="Movie Image">
             <p class="genre">Genre: Documentary, Personal, Celebration, Drama, Comedy</p> <!-- New Genre Section -->
             <p>Welcome to a special episode dedicated entirely to you, Marva! Today, we gather heartfelt messages and warm wishes from your parents and closest friends to make your 17th birthday unforgettable. From touching words of love to joyful expressions of celebration, this episode is all about honoring the wonderful person you are and the incredible journey you’ve had so far. Sit back, relax, and enjoy the heartfelt tributes as we celebrate YOU on this special day!</p>
@@ -239,5 +281,7 @@
     </div>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="homepage/homepage.js"></script>
 </html>

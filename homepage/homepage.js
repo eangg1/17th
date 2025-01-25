@@ -1,31 +1,23 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var episodeThumbnails = document.querySelectorAll('.episode-thumbnail');
-    var video = document.getElementById('heroVideo');
+function openFullscreen(imgSrc) {
+    const modal = document.getElementById("fullscreen-modal");
+    const fullscreenImg = document.getElementById("fullscreen-img");
 
-    episodeThumbnails.forEach(function(thumbnail) {
-        thumbnail.addEventListener('click', function () {
-            var videoSrc = thumbnail.getAttribute('data-video-src');
-            video.src = videoSrc;
+    // Set sumber gambar dan tampilkan modal
+    fullscreenImg.src = imgSrc;
+    modal.classList.remove("hidden");
 
-            // Play video
-            video.play();
-
-            // Request full screen
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.mozRequestFullScreen) { /* Firefox */
-                video.mozRequestFullScreen();
-            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) { /* IE/Edge */
-                video.msRequestFullscreen();
-            }
-
-            // Hide modal
-            document.getElementById('myModal').style.display = 'none';
-        });
+    // Menambahkan event listener untuk menutup modal jika mengklik di luar gambar
+    modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            closeFullscreen();
+        }
     });
-});
+}
+
+function closeFullscreen() {
+    const modal = document.getElementById("fullscreen-modal");
+    modal.classList.add("hidden");
+}
 
 document.addEventListener('DOMContentLoaded', function() {
 // Get elements
@@ -251,3 +243,4 @@ profileDropdown.classList.remove('show');
 notificationDropdown.classList.remove('show');
 });
 
+AOS.init(); // Inisialisasi AOS
