@@ -1294,3 +1294,248 @@
             font-size: 1rem;
         }
     }
+
+    @media (max-width: 576px) {
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between; /* Menyusun elemen secara rapi */
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+    
+        header img.logo {
+            width: 7vh; /* Logo lebih kecil */
+        }
+    
+        .search-container {
+            width: 100%;
+            display: flex; /* Gunakan flexbox untuk memudahkan pengaturan */
+            justify-content: center; /* Posisikan elemen di tengah secara horizontal */
+            align-items: center; /* Posisikan elemen di tengah secara vertikal */
+            margin: 0 auto;
+        }
+        
+        .search-bar {
+            width: 80%; /* Ubah lebar sesuai kebutuhan */
+            max-width: 250px; /* Batasi lebar maksimum pada layar besar */
+            height: 20px; /* Atur tinggi search bar */
+            font-size: 7px; /* Kurangi ukuran font untuk memperkecil teks */
+            padding: 5px 10px; /* Tambahkan padding untuk estetika */
+            border: 1px solid #ccc; /* Tambahkan border */
+            border-radius: 12px; /* Rounding untuk sudut */
+            outline: none; /* Hilangkan outline saat fokus */
+        }
+
+        .search-button {
+            display: none;
+        }
+    
+        .notification-container {
+            margin: 0 5px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e50914;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 4px;
+            font-size: 1px;
+            font-weight: bold;
+            line-height: 1;
+            min-width: 2px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Profil container tetap sama */
+        .profile-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .profile-pic {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .dropdown-icon {
+            width: 5px;
+            height: 5px;
+            margin-left: 3px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+            font-size: 3px;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: rgb(29, 29, 29);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .dropdown a:hover {
+            background-color: #e50914; /* Netflix red hover effect */
+            color: white;
+        }
+    
+        .hidden {
+            display: none;
+        }
+    
+        .show {
+            display: block;
+        }
+
+    
+        .hero {
+            position: relative;
+            text-align: left;
+            height: 40vh; /* Kurangi tinggi untuk layar kecil */
+            background: none; /* Hilangkan background image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+    
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .hero h1 {
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.5rem;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }    
+    
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+            gap: 8px; /* Kurangi jarak antar foto */
+            margin: 0 10px;
+        }
+    
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    
+        .close-modal:hover {
+            color: #f44336;
+        }
+    
+        .section-title {
+            margin: 20px 10px 12px;
+            font-size: 0.7rem;
+            text-align:left; /* Pusatkan judul */
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 6px;
+            cursor: pointer;
+            font-size: 0.5rem;
+            z-index: 10;
+        }
+
+        .nav-button.left {
+            left: 15px;
+        }
+    
+        .nav-button.right {
+            right: 15px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 10px;
+        }
+    
+        .hero-buttons button {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 0.5rem;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+    
+        .hero-buttons button i {
+            font-size: 0.5rem;
+        }
+    
+        .hero-buttons button:hover {
+            opacity: 0.8;
+        }
+    }
+    
