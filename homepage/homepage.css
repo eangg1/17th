@@ -1132,3 +1132,165 @@
             font-size: 1rem;
         }
     }
+
+    @media (max-width: 768px) and (orientation: portrait) {
+
+        header {
+            position: fixed;
+            top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start; /* Logo dan navigasi sejajar */
+            align-items: center;
+            padding: 7px 50px;
+            background: rgba(0, 0, 0, 0.062);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        header img.logo {
+            margin-left: 20px;
+            margin-right: 20px;
+            width: 12vh;
+        }
+
+        nav ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            align-items: flex-start;
+        }
+
+        nav ul li {
+            font-size: 12px;
+            padding: 6px 0;
+        }
+
+        nav ul li:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        #season-dropdown span {
+            font-size: 12px;
+        }
+
+        #season-dropdown {
+            position: relative;
+        }
+
+        #season-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            list-style: none;
+            padding: 6px 0;
+            margin: 0;
+            min-width: 140px;
+            z-index: 10;
+        }
+
+        #season-dropdown:hover #season-menu {
+            display: block;
+        }
+
+        .search-container {
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+
+        .search-bar {
+            width: 280px;
+        }
+
+        /* Notification container */
+        .notification-container {
+            margin-right: 10px;
+            margin-left: 10px;
+            width: 35px;
+            height: 35px;
+        }
+
+        .hero {
+            position: relative;
+            text-align: left;
+            height: 50vh; /* Setengah tinggi layar */
+            background: none; /* Hilangkan background image karena kita akan gunakan img */
+            display: flex;
+            align-items: center;
+            padding: 50px;
+            overflow: hidden; /* Pastikan tidak ada bagian gambar yang keluar */
+        }
+        
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Buat gambar menutupi kontainer */
+            object-fit: cover; /* Jaga rasio 16:9 sambil memenuhi kontainer */
+            z-index: -1; /* Pastikan gambar tetap di belakang konten */
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto; /* Pusatkan secara horizontal */
+            text-align: center; /* Pusatkan teks di dalam hero-content */
+            padding-top: 80px; /* Tambahkan padding untuk jarak yang nyaman */
+        }
+        
+        .hero h1 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align:left; /* Pastikan teks di tengah */
+        }
+        
+        .hero p {
+            font-size: 0.8rem;
+            margin-bottom: 30px;
+            margin-right: 200px; /* Hilangkan jarak hanya di kanan */
+            margin-left: auto; /* Tambahkan agar tetap seimbang */
+            text-align: left; /* Pastikan teks di tengah */
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 2 kolom */
+            gap: 12px; /* Jarak antar foto */
+            margin-left: 70px;
+            margin-right: 70px;
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -5px;
+            right: 150px; /* Sesuaikan dengan jarak yang diinginkan */
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 1001;
+            text-align: center; /* Menjaga teks tetap di tengah */
+        }
+
+        .close-modal:hover {
+            color: #f44336;
+        }
+
+        .section-title {
+            margin-top: 40px;
+            margin-left: 70px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+    }
