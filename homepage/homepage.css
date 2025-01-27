@@ -1274,8 +1274,8 @@
             display: flex;
             justify-content: space-between; /* Elemen rapi tanpa celah besar */
             align-items: center;
-            padding-left: 30px;
-            padding-right: 30px;
+            padding-left: 40px;
+            padding-right: 40px;
             background: rgba(0, 0, 0, 0.167);
             z-index: 9999;
             transition: background-color 0.3s ease;
@@ -1288,14 +1288,16 @@
         }
     
         nav ul {
-    
             display: none;
         }
     
         .header-container {
             display: flex;
-            padding: 0px;
-            margin: 0px;
+            justify-content: flex-end; /* Elemen akan sejajar ke kanan */
+            align-items: center;
+            padding-left: 93px; /* Tambahkan padding sesuai kebutuhan */
+            position: fixed;
+            z-index: 10;
         }
     
         .search-container {
@@ -1762,5 +1764,44 @@
             overflow: hidden;
             position: relative;
             transition: max-height 0.3s ease;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .header-container {
+            display: flex;
+            justify-content: flex-end; /* Elemen akan sejajar ke kanan */
+            align-items: center;
+            padding-left: 65px; /* Tambahkan padding sesuai kebutuhan */
+            position: fixed;
+            z-index: 10;
+        }
+    
+        .search-container {
+            flex: 1; /* Ambil ruang kosong di antara elemen */
+            display: flex;
+            align-items: center;
+            margin-left: 10px; /* Beri sedikit margin untuk keseimbangan */
+        }
+    
+        .search-bar {
+            width: 100%; /* Buat selebar ruang yang tersedia */
+            max-width: 70px; /* Batasi lebar maksimal */
+            height: 17px;
+            font-size: 10px;
+            padding: 4px 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-button {
+            width: 15px;
+            height: 15px;
+        }
+
+        .search-button svg {
+            fill: #e50914; /* Netflix red */
+            transition: fill 0.3s ease;
         }
     }
