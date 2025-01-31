@@ -4,7 +4,7 @@ function selectProfile(profile) {
         if (profile === 'marva') {
             window.location.href = 'homepage.html';
         } else {
-            alert('Profile ' + profile + ' selected!');
+            window.location.href = 'https://www.netflix.com/id/';
         }
     }, 1000);
 }
@@ -14,4 +14,4 @@ window.onload = function () {
     profiles.forEach((profile, index) => {
         profile.style.animationDelay = `${index * 0.2}s`;
     });
-}
+};
